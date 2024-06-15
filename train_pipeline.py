@@ -5,7 +5,7 @@ from src.config import config
 import src.preprocessing.preprocessors as pp
 from src.preprocessing.data_management import load_dataset, save_model, load_model
 
-import pipeline as pl
+import src.trained_models.pipeline as pl
 
 z = [None]*config.NUM_LAYERS
 h = [None]*config.NUM_LAYERS
@@ -106,5 +106,5 @@ def run_training(tol, epsilon, mini_batch_size=2):
     return loss_per_epoch
 
 if __name__ == "__main__":
-    run_training(10**(-10), 10**(-7), mini_batch_size=2)
+    run_training(10**(-8), 10**(-7), mini_batch_size=2)
     save_model(pl.theta0, pl.theta)
