@@ -24,10 +24,4 @@ def initialize_parameters():
 
   theta0.append(initialize_layer_biases(config.P[l])/math.sqrt(config.P[l-1]))
   theta.append(initialize_layer_weights(config.P[l],config.P[l])/math.sqrt(config.P[l-1]))
-
-
-
-
-
-
-
+  

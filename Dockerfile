@@ -8,6 +8,9 @@ WORKDIR /app
 
 RUN chmod -R 777 /app/src
 
-RUN pip install -r /app/src/requirement.txt
+RUN pip install -r /app/src/requirements.txt
 
-ENV PYTHONPATH=$(PYTHONPATH)./app/src
+ENV PYTHONPATH=${PYTHONPATH}:/app/src
+
+# Run train_pipeline.py when the container launches
+CMD ["python3", "./src/train_pipeline.py", "&&", "tail", "-f", "/dev/null"]
